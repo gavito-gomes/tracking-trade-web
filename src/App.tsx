@@ -1,7 +1,37 @@
 import React from 'react'
+import Sidebar, { SidebarItemProps } from './components/Sidebar'
+import ControlPanel from './screens/ControlPanel'
+import GlobalStyles from './styles/global'
+import styled from 'styled-components'
+import { BiBarChartSquare } from 'react-icons/bi'
+import { screen } from './styles/constants'
 
 function App() {
-  return <div className='App'></div>
+  const menuOptions: Array<SidebarItemProps> = [
+    {
+      label: 'Painel de controle',
+      path: '',
+      icon: BiBarChartSquare,
+    },
+  ]
+
+  return (
+    <AppContainer>
+      <Sidebar options={menuOptions} />
+      <ControlPanel />
+      <GlobalStyles />
+    </AppContainer>
+  )
 }
 
 export default App
+
+const AppContainer = styled.div`
+  height: 100%;
+  padding-top: 50px;
+  @media (${screen.md}) {
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+`
