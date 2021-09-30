@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar, { SidebarItemProps } from './components/Sidebar'
-import ControlPanel from './screens/ControlPanel'
+import ControlPanel from './features/ControlPanel/Index'
 import GlobalStyles from './styles/global'
 import styled from 'styled-components'
 import { BiBarChartSquare } from 'react-icons/bi'
@@ -32,6 +32,6 @@ const AppContainer = styled.div`
   @media (${screen.md}) {
     padding: 0;
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: fit-content(100px) 1fr;
   }
 `

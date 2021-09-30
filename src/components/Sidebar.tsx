@@ -15,7 +15,7 @@ export type SidebarItemProps = {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ options }) => {
-  const [active, setactive] = useState(true)
+  const [active, setactive] = useState(false)
 
   const toggleActive = () => setactive(!active)
 
@@ -82,9 +82,9 @@ const Burguer = styled.button`
   width: 40px;
   background: transparent;
   color: ${colors.white};
-  :hover {
-    cursor: pointer;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media (${screen.md}) {
     margin-top: 40px;
@@ -95,6 +95,7 @@ const Burguer = styled.button`
 `
 
 const Menu = styled.div`
+  width: 250px;
   padding: 10px 0;
   border: 0px solid ${colors.lightgray};
   border-bottom-width: 1px;
@@ -111,9 +112,6 @@ const CloseMenu = styled.button`
   width: 20px;
   height: 20px;
   display: none;
-  :hover {
-    cursor: pointer;
-  }
 
   @media (${screen.md}) {
     display: flex;
