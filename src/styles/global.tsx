@@ -8,12 +8,20 @@ export default createGlobalStyle`
     outline: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', serif !important;
   }
 
   html, body, #root {
     height: 100%;
     background: ${colors.white};
-    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+  }
+
+  button {
+    :hover {
+      cursor: pointer;
+    }
   }
 `
 
