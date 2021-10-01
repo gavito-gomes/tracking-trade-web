@@ -10,8 +10,9 @@ export default createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Poppins', serif !important;
   }
-
+  
   html, body, #root {
+    font-size: 14px;
     height: 100%;
     background: ${colors.white};
     -webkit-font-smoothing: antialiased;

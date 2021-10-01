@@ -7,6 +7,7 @@ import ActionPlannsUpdate from './components/ActionPlannsUpdate'
 import EventHistory from './components/EventHistory'
 import GeneralActionPlanns from './components/GeneralActionPlanns'
 import Inspections from './components/Inspections'
+import ScheduledInspections from './components/ScheduledInspections'
 
 export default function ControlPanel(): JSX.Element {
   return (
@@ -31,6 +32,10 @@ export default function ControlPanel(): JSX.Element {
       <ActionPlannsUpdateWrapper>
         <ActionPlannsUpdate />
       </ActionPlannsUpdateWrapper>
+
+      <ScheduledInspectionsWrapper>
+        <ScheduledInspections />
+      </ScheduledInspectionsWrapper>
     </Container>
   )
 }
@@ -55,20 +60,15 @@ const Container = styled(Page)`
 const Title = styled.h1`
   font-weight: 500;
   font-size: 24px;
+  margin-bottom: 20px;
 `
 const EventHistoryWrapper = styled.div`
-  grid-column: 1 / 2;
-  grid-row: 2;
-
   @media (${screen.md}) {
     grid-column: 1 / 3;
   }
 `
 
 const GeneralActionsWrapper = styled.div`
-  grid-column: 1 / 2;
-  grid-row: 3;
-
   @media (${screen.md}) {
     grid-column: 1 / 3;
   }
@@ -79,9 +79,6 @@ const GeneralActionsWrapper = styled.div`
   }
 `
 const InspectionsWrapper = styled.div`
-  grid-column: 1;
-  grid-row: 4;
-
   @media (${screen.md}) {
     grid-column: 1 / 2;
   }
@@ -90,9 +87,6 @@ const InspectionsWrapper = styled.div`
   }
 `
 const ActionPlannsWrapper = styled.div`
-  grid-column: 1;
-  grid-row: 5;
-
   @media (${screen.md}) {
     grid-column: 2 / 3;
     grid-row: 4;
@@ -103,9 +97,6 @@ const ActionPlannsWrapper = styled.div`
 `
 
 const ActionPlannsUpdateWrapper = styled.div`
-  grid-column: 1;
-  grid-row: 6;
-
   @media (${screen.md}) {
     grid-column: 1 / 3;
     grid-row: 5;
@@ -113,5 +104,16 @@ const ActionPlannsUpdateWrapper = styled.div`
   @media (${screen.lg}) {
     grid-column: 3 / 4;
     grid-row: 3 / 5;
+  }
+`
+
+const ScheduledInspectionsWrapper = styled.div`
+  @media (${screen.md}) {
+    grid-column: 1 / 3;
+    grid-row: 6;
+  }
+  @media (${screen.lg}) {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
   }
 `

@@ -31,7 +31,7 @@ const ActionPlannsUpdate: React.FC = () => {
     let text = args.shift() || ''
     let result = false
     args.forEach((arg: string) => {
-      if (arg.indexOf(text) >= 0) result = true
+      if (arg.toLowerCase().indexOf(text.toLowerCase()) >= 0) result = true
     })
     return result
   }
@@ -96,7 +96,7 @@ const ActionPlannsUpdate: React.FC = () => {
 export default ActionPlannsUpdate
 
 const Container = styled.div`
-  height: 100%;
+  /* height: 100%; */
 `
 
 const Header = styled.div`

@@ -10,7 +10,7 @@ import {
   SubtitlesCircle,
   SubtitlesLabel,
 } from '../../../components/charts/Subtitles'
-import { colors, screen } from '../../../styles/constants'
+import { screen } from '../../../styles/constants'
 import { ControlPanelContext } from '../ContextProvider'
 
 const GeneralActionPlanns: React.FC = () => {
