@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { screen } from '../../styles/constants'
 import { Page } from '../../styles/global'
 import ActionPlanns from './components/ActionPlanns'
+import ActionPlannsUpdate from './components/ActionPlannsUpdate'
 import EventHistory from './components/EventHistory'
 import GeneralActionPlanns from './components/GeneralActionPlanns'
 import Inspections from './components/Inspections'
@@ -14,15 +15,22 @@ export default function ControlPanel(): JSX.Element {
       <EventHistoryWrapper>
         <EventHistory />
       </EventHistoryWrapper>
+
       <GeneralActionsWrapper>
         <GeneralActionPlanns />
       </GeneralActionsWrapper>
+
       <InspectionsWrapper>
         <Inspections />
       </InspectionsWrapper>
-      <PlannedActionsWrapper>
+
+      <ActionPlannsWrapper>
         <ActionPlanns />
-      </PlannedActionsWrapper>
+      </ActionPlannsWrapper>
+
+      <ActionPlannsUpdateWrapper>
+        <ActionPlannsUpdate />
+      </ActionPlannsUpdateWrapper>
     </Container>
   )
 }
@@ -31,7 +39,7 @@ const Container = styled(Page)`
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-rows: 50px repeat(3, fit-content(300px));
+  grid-template-rows: 50px repeat(auto-fit, fit-content(300px));
   grid-template-columns: 100%;
   gap: 10px;
 
@@ -81,7 +89,7 @@ const InspectionsWrapper = styled.div`
     grid-row: 3;
   }
 `
-const PlannedActionsWrapper = styled.div`
+const ActionPlannsWrapper = styled.div`
   grid-column: 1;
   grid-row: 5;
 
@@ -91,5 +99,19 @@ const PlannedActionsWrapper = styled.div`
   }
   @media (${screen.lg}) {
     grid-row: 3;
+  }
+`
+
+const ActionPlannsUpdateWrapper = styled.div`
+  grid-column: 1;
+  grid-row: 6;
+
+  @media (${screen.md}) {
+    grid-column: 1 / 3;
+    grid-row: 5;
+  }
+  @media (${screen.lg}) {
+    grid-column: 3 / 4;
+    grid-row: 3 / 5;
   }
 `

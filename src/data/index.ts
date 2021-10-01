@@ -40,7 +40,7 @@ for (let i = 0; i < 10; i++) {
   })
 }
 
-let actionPlannUpdates = []
+let actionPlannsUpdates = []
 
 let status = [
   { value: 0, label: 'Realizado', color: colors.green },
@@ -50,14 +50,14 @@ let status = [
 
 for (let i = 10; i > 0; i--) {
   let date = new Date(Date.now() - 24 * 3600 * 1000 * (10 - i))
-  actionPlannUpdates.push({
+  actionPlannsUpdates.push({
     actionName: `Plano de ação ${i}`,
     responsible: faker.name.findName(),
     lastUpdate: date.toLocaleString(),
-    status: status[Math.floor(Math.random() * 2)],
+    status: status[Math.round(Math.random() * 2)],
   })
 }
-// console.log(actionPlannUpdates)
+// console.log(actionPlannsUpdates)
 
 const data = {
   scheduledInspections,
@@ -94,6 +94,7 @@ const data = {
     { label: 'Últimos 7 dias', value: '11 min' },
     { label: 'Últimos 30 dias', value: '10 min' },
   ],
+  actionPlannsUpdates,
 }
 
 export default data

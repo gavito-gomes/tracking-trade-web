@@ -22,3 +22,8 @@ export const CardTitle = styled.h3`
   font-weight: 500;
   font-size: 16px;
 `
+export const CardSubtitle = styled.h4`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${colors.dark};
+`

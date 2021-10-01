@@ -8,12 +8,25 @@ type SelectProps = {
     label: string
     value?: number | string
   }>
+  value?: number | string
+  onSelect?: (valueSelected: number) => void
 }
 
-const Select: React.FC<SelectProps> = ({ options }) => {
+const Select: React.FC<SelectProps> = ({
+  options,
+  value,
+  onSelect = () => {},
+}) => {
+  const handleChange: React.ChangeEventHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    console.log('selected', event)
+    onSelect(Number(event.target.value))
+  }
+
   return (
     <Container>
-      <SelectInput>
+      <SelectInput defaultValue={value} onChange={handleChange}>
         <SelectOption disabled>Selecione uma opção...</SelectOption>
         {options.map((item, i) => (
           <SelectOption key={i} value={item.value}>

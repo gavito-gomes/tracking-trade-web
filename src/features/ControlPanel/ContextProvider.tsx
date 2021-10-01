@@ -25,6 +25,16 @@ type ControlPanelData = {
     label: string
     value: string
   }>
+  actionPlannsUpdates: Array<{
+    actionName: string
+    responsible: string
+    lastUpdate: string
+    status: {
+      value: number
+      label: string
+      color?: string
+    }
+  }>
 }
 
 export const ControlPanelContext = createContext<ControlPanelData>({
@@ -38,6 +48,7 @@ export const ControlPanelContext = createContext<ControlPanelData>({
   generalActionPlanns: [],
   actionPlanns: [],
   actionPlannsAverageTime: [],
+  actionPlannsUpdates: [],
 })
 
 type ProviderProps = {
@@ -52,9 +63,9 @@ export default function ControlPanelContextProvider({
   const [inspections] = useState(data.inspections)
   const [inspectionsAverageTime] = useState(data.inspectionsAverageTime)
   const [generalActionPlanns] = useState(data.generalActionPlanns)
-
   const [actionPlanns] = useState(data.actionPlanns)
   const [actionPlannsAverageTime] = useState(data.actionPlannsAverageTime)
+  const [actionPlannsUpdates] = useState(data.actionPlannsUpdates)
 
   return (
     <ControlPanelContext.Provider
@@ -66,6 +77,7 @@ export default function ControlPanelContextProvider({
         generalActionPlanns,
         actionPlanns,
         actionPlannsAverageTime,
+        actionPlannsUpdates,
       }}
     >
       {children}

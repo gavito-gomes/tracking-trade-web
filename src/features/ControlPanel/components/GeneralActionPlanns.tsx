@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { FaCog } from 'react-icons/fa'
 import styled from 'styled-components'
-import Card, { CardTitle } from '../../../components/Card'
+import Card, { CardSubtitle, CardTitle } from '../../../components/Card'
 import PizzaChart, {
   PizzaValueType,
 } from '../../../components/charts/PizzaChart'
@@ -88,12 +88,6 @@ const Header = styled.div`
   @media (${screen.md}) {
     /* grid-template-columns: auto 300px 30px; */
   }
-`
-
-const CardSubtitle = styled.h4`
-  font-size: 12px;
-  font-weight: 400;
-  color: ${colors.dark};
 `
 
 const Title = styled.div`
