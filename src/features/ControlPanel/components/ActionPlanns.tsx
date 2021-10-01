@@ -63,7 +63,7 @@ const ActionPlanns: React.FC = () => {
           <TimeInfo>
             <CardSubtitle>Média de tempo</CardSubtitle>
             <TimeAverage>
-              {actionPlannsAverageTime.map((item) => (
+              {actionPlannsAverageTime.map((item, i) => (
                 <>
                   <TimeLabel>{item.label}</TimeLabel>
                   <TimeValue>{item.value}</TimeValue>

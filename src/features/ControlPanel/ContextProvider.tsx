@@ -1,10 +1,15 @@
 import React, { createContext, useState } from 'react'
 import { BarType, BarValueType } from '../../components/charts/BarChart'
 import { PizzaValueType } from '../../components/charts/PizzaChart'
-import data, { ScheduledInspectionType } from '../../data/Index'
+import data from '../../data/Index'
 
 type ControlPanelData = {
-  scheduledInspections: Array<ScheduledInspectionType>
+  scheduledInspections: Array<{
+    name: string
+    planned: number
+    completed: number
+    lastUpdate: string
+  }>
   eventHistory: {
     arrayData: Array<BarValueType<string, number>>
     barTypes: Array<BarType>

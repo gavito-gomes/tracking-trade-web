@@ -37,8 +37,8 @@ const EventHistory: React.FC = () => {
         </Chart>
 
         <ChartSubtitle>
-          {eventHistory.barTypes.map((item) => (
-            <BarType>
+          {eventHistory.barTypes.map((item, i) => (
+            <BarType key={i}>
               <SubtitlesCircle color={item.color} />
               <SubtitlesLabel>{item.label}</SubtitlesLabel>
             </BarType>

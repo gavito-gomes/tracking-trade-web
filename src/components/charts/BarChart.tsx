@@ -44,12 +44,12 @@ function BarChart<X, Y>({
       onMouseLeave={() => setviewScroll(false)}
       viewScroll={viewScroll}
     >
-      {arrayData?.map((item) => {
+      {arrayData?.map((item, i) => {
         return (
-          <BarGroup>
+          <BarGroup key={i}>
             <Bars>
-              {item.bars.map((bar) => (
-                <Bar>
+              {item.bars.map((bar, j) => (
+                <Bar key={j}>
                   <BarValueLabel>
                     {Number(bar.valueY) > 0 ? bar.valueY : ''}
                   </BarValueLabel>

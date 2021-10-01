@@ -1,25 +1,21 @@
-import faker from 'faker'
 import { BarValueType } from '../components/charts/BarChart'
 import { colors } from '../styles/constants'
 
-export type ScheduledInspectionType = {
-  name: string
-  planned: number
-  completed: number
-  lastUpdate?: Date
-}
+const faker = require('faker-br')
 
-let scheduledInspections: Array<ScheduledInspectionType> = []
+let scheduledInspections = []
 
 for (let i = 0; i < 10; i++) {
-  let planned = faker.datatype.number({ min: 10, max: 30 })
+  let date = new Date(Date.now() - 24 * 3600 * 1000 * i)
+  let planned = Math.floor(Math.random() * 19 + 10)
   scheduledInspections.push({
     name: faker.name.findName(),
     planned,
-    completed: faker.datatype.number({ min: 1, max: planned }),
-    lastUpdate: faker.date.soon(),
+    completed: Math.floor(Math.random() * (planned - 1) + 1),
+    lastUpdate: date.toLocaleString(),
   })
 }
+console.log(scheduledInspections)
 
 let eventHistory = Array<BarValueType<string, number>>()
 
@@ -43,6 +39,25 @@ for (let i = 0; i < 10; i++) {
     ],
   })
 }
+
+let actionPlannUpdates = []
+
+let status = [
+  { value: 0, label: 'Realizado', color: colors.green },
+  { value: 1, label: 'Pendente', color: colors.orange },
+  { value: 2, label: 'Não realizado', color: colors.red },
+]
+
+for (let i = 10; i > 0; i--) {
+  let date = new Date(Date.now() - 24 * 3600 * 1000 * (10 - i))
+  actionPlannUpdates.push({
+    actionName: `Plano de ação ${i}`,
+    responsible: faker.name.findName(),
+    lastUpdate: date.toLocaleString(),
+    status: status[Math.floor(Math.random() * 2)],
+  })
+}
+// console.log(actionPlannUpdates)
 
 const data = {
   scheduledInspections,

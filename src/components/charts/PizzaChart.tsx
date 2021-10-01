@@ -18,7 +18,7 @@ type ChartDash = {
   color?: string
 }
 
-function BarChart({
+function PizzaChart({
   arrayData,
   chartSize = 100,
 }: PizzaChartProps): JSX.Element {
@@ -48,7 +48,7 @@ function BarChart({
       accOffset += dasharray
       return dash
     })
-    console.log('dashes', dashes)
+    // console.log('dashes', dashes)
 
     setchartDashes(dashes)
   }, [arrayData])
@@ -64,6 +64,7 @@ function BarChart({
         {chartDashes.map((dash, i) => {
           return (
             <circle
+              key={i}
               r={45}
               cx={50}
               cy={50}
@@ -80,7 +81,7 @@ function BarChart({
   )
 }
 
-export default BarChart
+export default PizzaChart
 
 const Container = styled.div`
   width: 100%;

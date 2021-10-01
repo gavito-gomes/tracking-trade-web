@@ -38,6 +38,7 @@ const AppContainer = styled('div')<{ sidebarActive: boolean }>`
   padding-top: 50px;
 
   @media (${screen.md}) {
+    padding: 0;
     padding-left: ${(props) => (props.sidebarActive ? '290px' : '40px')};
     /* padding: 0;
     display: grid;
