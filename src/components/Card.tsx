@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({ children }) => {
 export default Card
 
 const CardContainer = styled.div`
-  /* height: 100%; */
+  height: 100%;
   width: 100%;
   border-radius: 5px;
   border: 1px solid ${colors.gray};

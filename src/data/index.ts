@@ -1,6 +1,5 @@
 import faker from 'faker'
 import { BarValueType } from '../components/charts/BarChart'
-import { PizzaValueType } from '../components/charts/PizzaChart'
 import { colors } from '../styles/constants'
 
 export type ScheduledInspectionType = {
@@ -45,12 +44,6 @@ for (let i = 0; i < 10; i++) {
   })
 }
 
-let inspections: Array<PizzaValueType> = [
-  { value: 23, label: 'Realizadas', color: colors.green },
-  { value: 14, label: 'Em aberto', color: colors.orange },
-  { value: 4, label: 'Não realizadas', color: colors.red },
-]
-
 const data = {
   scheduledInspections,
   eventHistory: {
@@ -61,7 +54,31 @@ const data = {
     ],
     arrayData: eventHistory,
   },
-  inspections,
+  inspections: [
+    { value: 23, label: 'Realizadas', color: colors.green },
+    { value: 14, label: 'Em aberto', color: colors.orange },
+    { value: 4, label: 'Não realizadas', color: colors.red },
+  ],
+  inspectionsAverageTime: [
+    { label: 'Hoje', value: '9 min' },
+    { label: 'Últimos 7 dias', value: '10 min' },
+    { label: 'Últimos 30 dias', value: '12 min' },
+  ],
+  generalActionPlanns: [
+    { value: 43, label: 'Realizadas', color: colors.green },
+    { value: 12, label: 'Em aberto', color: colors.orange },
+    { value: 10, label: 'Não realizadas', color: colors.red },
+  ],
+  actionPlanns: [
+    { value: 10, label: 'Realizadas', color: colors.green },
+    { value: 11, label: 'Em aberto', color: colors.orange },
+    { value: 5, label: 'Não realizadas', color: colors.red },
+  ],
+  actionPlannsAverageTime: [
+    { label: 'Hoje', value: '8 min' },
+    { label: 'Últimos 7 dias', value: '11 min' },
+    { label: 'Últimos 30 dias', value: '10 min' },
+  ],
 }
 
 export default data

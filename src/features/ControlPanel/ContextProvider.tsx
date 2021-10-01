@@ -10,15 +10,29 @@ type ControlPanelData = {
     barTypes: Array<BarType>
   }
   inspections: Array<PizzaValueType>
+  inspectionsAverageTime: Array<{
+    label: string
+    value: string
+  }>
+  generalActionPlanns: Array<PizzaValueType>
+  actionPlanns: Array<PizzaValueType>
+  actionPlannsAverageTime: Array<{
+    label: string
+    value: string
+  }>
 }
 
 export const ControlPanelContext = createContext<ControlPanelData>({
   scheduledInspections: [],
-  inspections: [],
   eventHistory: {
     arrayData: [],
     barTypes: [],
   },
+  inspections: [],
+  inspectionsAverageTime: [],
+  generalActionPlanns: [],
+  actionPlanns: [],
+  actionPlannsAverageTime: [],
 })
 
 type ProviderProps = {
@@ -31,6 +45,11 @@ export default function ControlPanelContextProvider({
   const [scheduledInspections] = useState(data.scheduledInspections)
   const [eventHistory] = useState(data.eventHistory)
   const [inspections] = useState(data.inspections)
+  const [inspectionsAverageTime] = useState(data.inspectionsAverageTime)
+  const [generalActionPlanns] = useState(data.generalActionPlanns)
+
+  const [actionPlanns] = useState(data.actionPlanns)
+  const [actionPlannsAverageTime] = useState(data.actionPlannsAverageTime)
 
   return (
     <ControlPanelContext.Provider
@@ -38,6 +57,10 @@ export default function ControlPanelContextProvider({
         scheduledInspections,
         eventHistory,
         inspections,
+        inspectionsAverageTime,
+        generalActionPlanns,
+        actionPlanns,
+        actionPlannsAverageTime,
       }}
     >
       {children}

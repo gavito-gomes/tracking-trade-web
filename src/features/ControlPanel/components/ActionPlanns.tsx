@@ -13,17 +13,17 @@ import {
 import { colors, screen } from '../../../styles/constants'
 import { ControlPanelContext } from '../ContextProvider'
 
-const Inspections: React.FC = () => {
-  const { inspections, inspectionsAverageTime } =
+const ActionPlanns: React.FC = () => {
+  const { actionPlanns, actionPlannsAverageTime } =
     useContext(ControlPanelContext)
 
   const [chartData, setchartData] = useState<Array<PizzaValueType>>([])
   const [totalValue] = useState(
-    inspections.map((item) => item.value).reduce((acc, prev) => acc + prev, 0)
+    actionPlanns.map((item) => item.value).reduce((acc, prev) => acc + prev, 0)
   )
 
   useEffect(() => {
-    let data: Array<PizzaValueType> = inspections.map((item) => {
+    let data: Array<PizzaValueType> = actionPlanns.map((item) => {
       return {
         label: item.label,
         value: item.value / totalValue,
@@ -31,14 +31,14 @@ const Inspections: React.FC = () => {
       }
     })
     setchartData(data)
-  }, [inspections, totalValue])
+  }, [actionPlanns, totalValue])
 
   return (
     <Container>
       <Card>
         <Header>
           <Title>
-            <CardTitle>Inspeções</CardTitle>
+            <CardTitle>Planos de ação</CardTitle>
             <CardSubtitle>Status do dia</CardSubtitle>
           </Title>
           <Settings>
@@ -50,7 +50,7 @@ const Inspections: React.FC = () => {
         </ChartWrapper>
         <InfoSection>
           <Subtitles>
-            {inspections.map((item, i) => (
+            {actionPlanns.map((item, i) => (
               <Subtitle key={i}>
                 <SubtitlesCircle color={item.color}></SubtitlesCircle>
                 <SubtitlesLabel>
@@ -63,7 +63,7 @@ const Inspections: React.FC = () => {
           <TimeInfo>
             <CardSubtitle>Média de tempo</CardSubtitle>
             <TimeAverage>
-              {inspectionsAverageTime.map((item) => (
+              {actionPlannsAverageTime.map((item) => (
                 <>
                   <TimeLabel>{item.label}</TimeLabel>
                   <TimeValue>{item.value}</TimeValue>
@@ -77,7 +77,7 @@ const Inspections: React.FC = () => {
   )
 }
 
-export default Inspections
+export default ActionPlanns
 
 const Container = styled.div`
   /* height: 120px; */

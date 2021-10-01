@@ -13,17 +13,18 @@ import {
 import { colors, screen } from '../../../styles/constants'
 import { ControlPanelContext } from '../ContextProvider'
 
-const Inspections: React.FC = () => {
-  const { inspections, inspectionsAverageTime } =
-    useContext(ControlPanelContext)
+const GeneralActionPlanns: React.FC = () => {
+  const { generalActionPlanns } = useContext(ControlPanelContext)
 
   const [chartData, setchartData] = useState<Array<PizzaValueType>>([])
   const [totalValue] = useState(
-    inspections.map((item) => item.value).reduce((acc, prev) => acc + prev, 0)
+    generalActionPlanns
+      .map((item) => item.value)
+      .reduce((acc, prev) => acc + prev, 0)
   )
 
   useEffect(() => {
-    let data: Array<PizzaValueType> = inspections.map((item) => {
+    let data: Array<PizzaValueType> = generalActionPlanns.map((item) => {
       return {
         label: item.label,
         value: item.value / totalValue,
@@ -31,15 +32,15 @@ const Inspections: React.FC = () => {
       }
     })
     setchartData(data)
-  }, [inspections, totalValue])
+  }, [generalActionPlanns, totalValue])
 
   return (
     <Container>
       <Card>
         <Header>
           <Title>
-            <CardTitle>Inspeções</CardTitle>
-            <CardSubtitle>Status do dia</CardSubtitle>
+            <CardTitle>Planos de ação</CardTitle>
+            <CardSubtitle>Status geral</CardSubtitle>
           </Title>
           <Settings>
             <FaCog size={20} />
@@ -50,7 +51,7 @@ const Inspections: React.FC = () => {
         </ChartWrapper>
         <InfoSection>
           <Subtitles>
-            {inspections.map((item, i) => (
+            {generalActionPlanns.map((item, i) => (
               <Subtitle key={i}>
                 <SubtitlesCircle color={item.color}></SubtitlesCircle>
                 <SubtitlesLabel>
@@ -60,24 +61,13 @@ const Inspections: React.FC = () => {
               </Subtitle>
             ))}
           </Subtitles>
-          <TimeInfo>
-            <CardSubtitle>Média de tempo</CardSubtitle>
-            <TimeAverage>
-              {inspectionsAverageTime.map((item) => (
-                <>
-                  <TimeLabel>{item.label}</TimeLabel>
-                  <TimeValue>{item.value}</TimeValue>
-                </>
-              ))}
-            </TimeAverage>
-          </TimeInfo>
         </InfoSection>
       </Card>
     </Container>
   )
 }
 
-export default Inspections
+export default GeneralActionPlanns
 
 const Container = styled.div`
   /* height: 120px; */
@@ -132,32 +122,3 @@ const InfoSection = styled.div`
   } */
 `
 const Subtitles = styled.div``
-
-const TimeInfo = styled.div`
-  justify-self: flex-end;
-`
-
-const TimeAverage = styled.div`
-  /* background: yellow; */
-  margin-top: 5px;
-  display: grid;
-  grid-template-columns: fit-content(200px) auto;
-`
-
-const TimeLabel = styled(SubtitlesLabel)`
-  grid-column: 1;
-  padding-right: 10px;
-  margin-bottom: 5px;
-
-  @media (${screen.sm}) {
-  }
-  @media (${screen.lg}) {
-    font-size: 10px;
-  }
-`
-const TimeValue = styled(SubtitlesLabel)`
-  grid-column: 2;
-  @media (${screen.lg}) {
-    font-size: 10px;
-  }
-`
