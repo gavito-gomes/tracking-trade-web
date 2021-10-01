@@ -20,7 +20,6 @@ const Select: React.FC<SelectProps> = ({
   const handleChange: React.ChangeEventHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    console.log('selected', event)
     onSelect(Number(event.target.value))
   }
 

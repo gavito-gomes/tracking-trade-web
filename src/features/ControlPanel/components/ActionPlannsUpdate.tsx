@@ -8,7 +8,7 @@ import { FaCog } from 'react-icons/fa'
 import styled from 'styled-components'
 import Card, { CardSubtitle, CardTitle } from '../../../components/Card'
 import Select from '../../../components/Select'
-import { colors, screen } from '../../../styles/constants'
+import { colors } from '../../../styles/constants'
 import { ControlPanelContext } from '../ContextProvider'
 
 const ActionPlannsUpdate: React.FC = () => {
@@ -25,8 +25,6 @@ const ActionPlannsUpdate: React.FC = () => {
   const [searchText, setsearchText] = useState('')
 
   const seacrhIn = (...args: string[]) => {
-    console.log('args', args)
-
     if (args.length <= 0) return
     let text = args.shift() || ''
     let result = false
@@ -95,35 +93,23 @@ const ActionPlannsUpdate: React.FC = () => {
 
 export default ActionPlannsUpdate
 
-const Container = styled.div`
-  /* height: 100%; */
-`
+const Container = styled.div``
 
 const Header = styled.div`
   display: grid;
   grid-template-columns: auto 30px;
   grid-template-rows: auto auto;
   gap: 10px;
-
-  @media (${screen.md}) {
-    /* grid-template-columns: auto 300px 30px; */
-  }
 `
 
 const Title = styled.div`
   grid-column: 1 / 2;
-  /* background: aqua; */
 `
 const Settings = styled.button`
   width: fit-content;
   grid-column: 2 / 3;
   background: transparent;
   justify-self: flex-end;
-  /* background: salmon; */
-
-  @media (${screen.md}) {
-    /* grid-column: 3 / 4; */
-  }
 `
 
 const Search = styled.input`
@@ -138,7 +124,6 @@ const ActionsList = styled.div`
 `
 
 const ActionPlann = styled.div`
-  /* background: #c77; */
   font-size: 12px;
   border-top: 1px solid ${colors.gray};
   display: flex;

@@ -15,7 +15,6 @@ for (let i = 0; i < 10; i++) {
     lastUpdate: date.toLocaleString(),
   })
 }
-console.log(scheduledInspections)
 
 let eventHistory = Array<BarValueType<string, number>>()
 
@@ -57,7 +56,6 @@ for (let i = 10; i > 0; i--) {
     status: status[Math.round(Math.random() * 2)],
   })
 }
-// console.log(actionPlannsUpdates)
 
 const data = {
   scheduledInspections,

@@ -39,8 +39,5 @@ const AppContainer = styled('div')<{ sidebarActive: boolean }>`
   @media (${screen.md}) {
     padding: 0;
     padding-left: ${(props) => (props.sidebarActive ? '290px' : '40px')};
-    /* padding: 0;
-    display: grid;
-    grid-template-columns: fit-content(100px) 1fr; */
   }
 `

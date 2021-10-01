@@ -24,17 +24,6 @@ function PizzaChart({
 }: PizzaChartProps): JSX.Element {
   const [chartDashes, setchartDashes] = useState<Array<ChartDash>>([])
 
-  // const calculateDasharray = (index: number) => {
-  //   let value =
-  //     arrayData && index < arrayData.length && index >= 0
-  //       ? arrayData[index].value
-  //       : 0
-  //   let percentage = value / totalValue
-  //   console.log('percentage', percentage)
-
-  //   return 2 * Math.PI * percentage
-  // }
-
   useEffect(() => {
     if (!arrayData) return
     let accOffset = 0
@@ -48,7 +37,6 @@ function PizzaChart({
       accOffset += dasharray
       return dash
     })
-    // console.log('dashes', dashes)
 
     setchartDashes(dashes)
   }, [arrayData])

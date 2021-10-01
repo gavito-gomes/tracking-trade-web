@@ -69,7 +69,6 @@ const Header = styled.div`
 
 const Title = styled.div`
   grid-column: 1 / 2;
-  /* background: aqua; */
 `
 
 const Filter = styled.div`
@@ -80,7 +79,6 @@ const Filter = styled.div`
     grid-row: 1 / 2;
     grid-column: 2 / 3;
   }
-  /* background: yellowgreen; */
 `
 
 const Settings = styled.button`
@@ -88,7 +86,6 @@ const Settings = styled.button`
   grid-column: 2 / 3;
   background: transparent;
   justify-self: flex-end;
-  /* background: salmon; */
 
   @media (${screen.md}) {
     grid-column: 3 / 4;
@@ -96,7 +93,6 @@ const Settings = styled.button`
 `
 
 const Chart = styled.div`
-  /* background: aqua; */
   max-width: 100%;
   overflow-x: hidden;
   margin-top: 10px;

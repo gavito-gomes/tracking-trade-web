@@ -73,8 +73,6 @@ function BarChart<X, Y>({
 export default BarChart
 
 const Container = styled('div')<{ viewScroll?: boolean }>`
-  /* width: 100%; */
-  /* background: #f44; */
   height: 160px;
   display: flex;
   overflow-x: auto;
@@ -92,7 +90,6 @@ const Container = styled('div')<{ viewScroll?: boolean }>`
 `
 
 const BarGroup = styled.div`
-  /* background: #ff4; */
   height: 100%;
   flex: 0 0 70px;
   align-self: flex-end;
@@ -103,7 +100,6 @@ const BarGroup = styled.div`
 `
 
 const Bars = styled.div`
-  /* background: aqua; */
   padding: 10px 20px;
   display: flex;
   justify-content: space-around;
@@ -117,7 +113,6 @@ const LabelX = styled.label`
 const Bar = styled.div`
   height: 100%;
   width: 10px;
-  /* background: yellow; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

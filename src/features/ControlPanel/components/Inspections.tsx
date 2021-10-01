@@ -79,12 +79,8 @@ const Inspections: React.FC = () => {
 
 export default Inspections
 
-const Container = styled.div`
-  /* height: 120px; */
-  /* background: #f23; */
-`
+const Container = styled.div``
 const ChartWrapper = styled.div`
-  /* background: salmon; */
   padding: 10px;
   text-align: center;
 `
@@ -94,36 +90,22 @@ const Header = styled.div`
   grid-template-columns: auto 30px;
   grid-template-rows: auto auto;
   gap: 10px;
-
-  @media (${screen.md}) {
-    /* grid-template-columns: auto 300px 30px; */
-  }
 `
 
 const Title = styled.div`
   grid-column: 1 / 2;
-  /* background: aqua; */
 `
 const Settings = styled.button`
   width: fit-content;
   grid-column: 2 / 3;
   background: transparent;
   justify-self: flex-end;
-  /* background: salmon; */
-
-  @media (${screen.md}) {
-    /* grid-column: 3 / 4; */
-  }
 `
 
 const InfoSection = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
   align-items: flex-end;
-
-  /* @media (${screen.md}) {
-    grid-template-columns: 60% 40%;
-  } */
 `
 const Subtitles = styled.div``
 
@@ -132,7 +114,6 @@ const TimeInfo = styled.div`
 `
 
 const TimeAverage = styled.div`
-  /* background: yellow; */
   margin-top: 5px;
   display: grid;
   grid-template-columns: fit-content(200px) auto;
