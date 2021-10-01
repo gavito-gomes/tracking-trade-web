@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { IconType } from 'react-icons/lib'
 import styled from 'styled-components'
 import { colors, screen } from '../styles/constants'
@@ -6,6 +6,8 @@ import { FaBars, FaAngleLeft } from 'react-icons/fa'
 
 export type SidebarProps = {
   options: Array<SidebarItemProps>
+  active: boolean
+  setActive: (active: boolean) => void
 }
 
 export type SidebarItemProps = {
@@ -14,10 +16,8 @@ export type SidebarItemProps = {
   icon: IconType
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ options }) => {
-  const [active, setactive] = useState(false)
-
-  const toggleActive = () => setactive(!active)
+const Sidebar: React.FC<SidebarProps> = ({ options, active, setActive }) => {
+  const toggleActive = () => setActive(!active)
 
   return (
     <Container>
@@ -51,11 +51,11 @@ const Container = styled.div`
   background: ${colors.white};
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 2;
 
   @media (${screen.md}) {
-    position: relative;
     width: fit-content;
     height: 100%;
     display: flex;

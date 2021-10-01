@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar, { SidebarItemProps } from './components/Sidebar'
 import ControlPanel from './features/ControlPanel/Index'
 import GlobalStyles from './styles/global'
@@ -15,9 +15,15 @@ function App() {
     },
   ]
 
+  const [sidebarActive, setsidebarActive] = useState(false)
+
   return (
-    <AppContainer>
-      <Sidebar options={menuOptions} />
+    <AppContainer sidebarActive={sidebarActive}>
+      <Sidebar
+        options={menuOptions}
+        active={sidebarActive}
+        setActive={setsidebarActive}
+      />
       <ControlPanel />
       <GlobalStyles />
     </AppContainer>
@@ -26,13 +32,15 @@ function App() {
 
 export default App
 
-const AppContainer = styled.div`
+const AppContainer = styled('div')<{ sidebarActive: boolean }>`
   width: 100%;
   height: 100%;
   padding-top: 50px;
+
   @media (${screen.md}) {
-    padding: 0;
+    padding-left: ${(props) => (props.sidebarActive ? '290px' : '40px')};
+    /* padding: 0;
     display: grid;
-    grid-template-columns: fit-content(100px) 1fr;
+    grid-template-columns: fit-content(100px) 1fr; */
   }
 `
