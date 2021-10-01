@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { colors } from '../styles/constants'
+import { colors } from '../../styles/constants'
 
-interface BarType {
+export type BarType = {
   id: number
   label: string
   color?: string
@@ -73,7 +73,7 @@ function BarChart<X, Y>({
 export default BarChart
 
 const Container = styled('div')<{ viewScroll?: boolean }>`
-  width: 100%;
+  /* width: 100%; */
   /* background: #f44; */
   height: 160px;
   display: flex;
